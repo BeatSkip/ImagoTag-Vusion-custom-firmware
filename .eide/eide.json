@@ -1,5 +1,5 @@
 {
-  "name": "axsem-blink",
+  "name": "axsem-playground",
   "type": "C51",
   "dependenceList": [],
   "srcDirs": [
@@ -39,13 +39,13 @@
         "name": "default",
         "incList": [
           "include",
-          "c:/Program Files (x86)/ON Semiconductor/AXSDB/libmf/include",
-          "c:/Program Files (x86)/ON Semiconductor/AXSDB/libaxdvk2/include"
+          "../../../../Program Files (x86)/ON Semiconductor/AXSDB/libmf/include",
+          "../../../../Program Files (x86)/ON Semiconductor/AXSDB/libaxdvk2/include"
         ],
         "libList": [
-          "C:/Program Files (x86)/ON Semiconductor/AXSDB/libmf/sdcc",
-          "c:/Program Files (x86)/ON Semiconductor/AXSDB/libreent/sdcc",
-          "c:/Program Files (x86)/ON Semiconductor/AXSDB/libaxdvk2/sdcc"
+          "../../../../Program Files (x86)/ON Semiconductor/AXSDB/libmf/sdcc",
+          "../../../../Program Files (x86)/ON Semiconductor/AXSDB/libreent/sdcc",
+          "../../../../Program Files (x86)/ON Semiconductor/AXSDB/libaxdvk2/sdcc"
         ],
         "defineList": [
           "SDCC=360",
