@@ -18,11 +18,18 @@ This project demonstrates programming for the Axsem AX8052 microcontroller using
 
 ## Building
 
+the ide needs fixing, so a tool was made to get the right SDCC config.
+
+```bash
+# Inside .\tools\
+.\fix-ide.exe "C:\Users\Oscar\.vscode-insiders\" sdcc.model.json 
+```
+
 ```bash
 # Build using EIDE
 1. Open Command Palette (Ctrl+Shift+P)
 2. Select "EIDE: Build Project"
-```
+
 
 ## Hardware Configuration
 

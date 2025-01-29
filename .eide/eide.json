@@ -51,7 +51,8 @@
           "SDCC=360",
           "__SDCC_CHAR_UNSIGNED",
           "__SDCC_MODEL_SMALL",
-          "__SDCC_FLOAT_REENT"
+          "__SDCC_FLOAT_REENT",
+          "SDCC"
         ]
       },
       "builderOptions": {
@@ -63,7 +64,8 @@
             "device": "mcs51",
             "optimize-type": "balanced",
             "misc-controls": "--debug --model-small --verbose --iram-size 256 --xram-size 8192 --code-size 59389",
-            "out-debug-info": true
+            "out-debug-info": true,
+            "no-optimize-std-lib": true
           },
           "c/cpp-compiler": {
             "language-c": "c11"
