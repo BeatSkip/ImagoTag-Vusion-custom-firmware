@@ -1,1 +1,11 @@
-{}
+{
+    "files.associations": {
+        "ax8052f143.h": "c",
+        "board.h": "c",
+        "8052.h": "c",
+        "8051.h": "c",
+        "ax8052.h": "c",
+        "libmf.h": "c"
+    },
+    "C_Cpp.default.compilerPath": "C:/Program Files/SDCC/bin/sdcc.exe"
+}

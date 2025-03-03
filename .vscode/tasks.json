@@ -2,39 +2,92 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "cmake configure",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-B",
+                "build",
+                "-S",
+                "."
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
             "label": "build",
             "type": "shell",
-            "command": "${command:eide.project.build}",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "build",
+                "--config",
+                "Debug"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": [
+                "cmake configure"
+            ],
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "build",
+                "--target",
+                "clean"
+            ],
             "group": "build",
             "problemMatcher": []
         },
         {
             "label": "flash",
             "type": "shell",
-            "command": "${command:eide.project.uploadToDevice}",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/axsem_flasher.py",
+                "-p",
+                "${input:comPort}",
+                "${workspaceFolder}/build/firmware.hex"
+            ],
             "group": "build",
             "problemMatcher": []
         },
         {
             "label": "build and flash",
             "type": "shell",
-            "command": "${command:eide.project.buildAndFlash}",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "build",
+                "flash"
+            ],
             "group": "build",
             "problemMatcher": []
         },
         {
             "label": "rebuild",
             "type": "shell",
-            "command": "${command:eide.project.rebuild}",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "clean",
+                "build"
+            ],
             "group": "build",
             "problemMatcher": []
-        },
+        }
+    ],
+    "inputs": [
         {
-            "label": "clean",
-            "type": "shell",
-            "command": "${command:eide.project.clean}",
-            "group": "build",
-            "problemMatcher": []
+            "id": "comPort",
+            "type": "promptString",
+            "description": "Enter COM port (e.g. COM3)",
+            "default": "COM3"
         }
     ]
 }

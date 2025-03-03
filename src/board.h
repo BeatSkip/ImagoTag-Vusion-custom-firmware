@@ -11,24 +11,11 @@
  * ***********************************
 */
 
-#include <ax8052.h>
+#include <ax8052f143.h>
 #include <libmftypes.h>
 
 //Board constants
 #define SYSCLK 26000000UL  // 26Mhz system clock
-
-//MACROS
-#define HIGH (1)
-#define LOW (0)
-
-#define BIT(x)  (1<<(x))
-#define SET(p,x)    do{(p) |= (x);}while(0)
-#define CLEAR(p,x)  do{(p) &= ~(x);}while(0)
-
-#define PIN_SET_INPUT(p,x)  CLEAR(p, (BIT(x)))
-#define PIN_SET_OUTPUT(p,x) SET(p, (BIT(x)))
-#define PIN_SET_LOW(p,x)    CLEAR(p, (BIT(x)))
-#define PIN_SET_HIGH(p,x)   SET(p, (BIT(x)))
 
 //PINS
 
@@ -42,6 +29,7 @@
 #define LEDG_PORT PORTB
 #define LEDR_PORT PORTC
 
+
 #define LEDW_DIR DIRB
 #define LEDB_DIR DIRB
 #define LEDG_DIR DIRB
@@ -52,7 +40,46 @@
 #define LEDG_PIN 6
 #define LEDR_PIN 4
 
+#define UART_RX PORTB_4
+#define UART_TX PORTB_5
+#define UART_PORT PORTB
+#define UART_DIR DIRB
 
+//FLASH MEMORY & SPI
+#define CS_FLASH PORTC_0
+#define CS_FLASH_DIR DIRC
+#define CS_FLASH_PORT PORTC
+
+#define CS_NFC PORTB_1
+#define CS_NFC_DIR DIRB
+#define CS_NFC_PORT PORTB
+
+#define CS_EPD PORTA_1
+#define CS_EPD_DIR DIRA
+#define CS_EPD_PORT PORTA
+
+#define SPI_SCK PORTC_1
+#define SPI_MISO PORTC_3
+#define SPI_MOSI PORTC_2
+
+#define SPI_PORT PORTC
+#define SPI_DIR DIRC
+
+#define NFC_FD PORTB_3
+#define NFC_FD_DIR DIRB
+#define NFC_FD_PORT PORTB
+
+#define EPD_DC PORTA_0
+#define EPD_DC_DIR DIRA
+#define EPD_DC_PORT PORTA
+
+#define EPD_RST PORTB_5
+#define EPD_RST_DIR DIRB
+#define EPD_RST_PORT PORTB
+
+#define EPD_BUSY PORTB_2
+#define EPD_BUSY_DIR DIRB
+#define EPD_BUSY_PORT PORTB
 
 void board_init(void);
 
