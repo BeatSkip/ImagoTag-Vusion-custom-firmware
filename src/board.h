@@ -14,6 +14,10 @@
 #include <ax8052f143.h>
 #include <libmftypes.h>
 
+#ifdef __cplusplus
+ extern "C" {
+#endif /* __cplusplus */
+
 //Board constants
 #define SYSCLK 26000000UL  // 26Mhz system clock
 
@@ -81,21 +85,43 @@
 #define EPD_BUSY_DIR DIRB
 #define EPD_BUSY_PORT PORTB
 
-void board_init(void);
+/* Hardware SPI settings */
+#define EPD_SPIMODE       (0x00)     //mode - master
+#define NFC_SPIMODE
+#define FLASH_SPIMODE
+
+#define SPI_SPMODE       (0x01)     //mode - master
+#define SPI_CLKSRC       (0x06)     //clock - SysCore, prescaler - 1
+
+#define SPI_MODE        (SPMODE)
+#define SPI_CLKCFG      (SPCLKSRC)
+#define SPI_DATA        (SPSHREG)
+#define SPI_STATUS      (SPSTATUS)
+
+#define TX_DONE          SPI_STATUS & 0x04
+#define PUTC(c)          do {                       \
+                            SPI_DATA = c;           \
+                            while(!TX_DONE);        \
+                         } while(0);
+#define RX_FULL          SPI_STATUS & 0x01
+#define GETC(c)         do {                        \
+                            while(!RX_FULL);        \
+                            c = SPI_DATA;           \
+                         } while(0);
+
+/* Function definitions */
+void periph_init(void);
+
+uint8_t spi_transfer(uint8_t c);
+
+void spi_writepacket(uint8_t* data, uint16_t length);
+void spi_readpacket(uint8_t* data, uint16_t length);
+void delay_ms(uint32_t ticks);
 
 
-void board_init(void)
-{
-    // Set LED pins as output
-    PIN_SET_OUTPUT(LEDW_DIR, LEDW_PIN);
-    PIN_SET_OUTPUT(LEDR_DIR, LEDR_PIN);
-    PIN_SET_OUTPUT(LEDG_DIR, LEDG_PIN);
-    PIN_SET_OUTPUT(LEDB_DIR, LEDB_PIN);  
 
-    PIN_SET_LOW(LEDW_PORT, LEDW_PIN);
-    PIN_SET_LOW(LEDR_PORT, LEDR_PIN);
-    PIN_SET_LOW(LEDG_PORT, LEDG_PIN);
-    PIN_SET_LOW(LEDB_PORT, LEDB_PIN);  
+#ifdef __cplusplus
 }
+#endif /* __cplusplus */
 
 #endif // BOARD_HEADER_H

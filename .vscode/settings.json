@@ -5,7 +5,9 @@
         "8052.h": "c",
         "8051.h": "c",
         "ax8052.h": "c",
-        "libmf.h": "c"
-    },
-    "C_Cpp.default.compilerPath": "C:/Program Files/SDCC/bin/sdcc.exe"
+        "libmf.h": "c",
+        "stdbool.h": "c",
+        "libmftypes.h": "c",
+        "axcompiler.h": "c"
+    }
 }

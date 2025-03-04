@@ -4,9 +4,12 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "C:/Program Files (x86)/ON Semiconductor/AXSDB/libmf/include"
+                "C:/Program Files (x86)/ON Semiconductor/AXSDB/libmf/include",
+                "C:/Program Files (x86)/IAR Systems/Embedded Workbench 8.3/8051/inc",
+                "C:/Program Files (x86)/IAR Systems/Embedded Workbench 8.3/8051/inc/clib/"
             ],
             "defines": [
+                "",
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"
