@@ -1,3 +1,5 @@
+Update 03-May-2025: This project is not yet stale, just had a busy personal time. Project will be picked up again soon
+
 # AX8052 IAR Project
 
 This project demonstrates programming for the Axsem AX8052 microcontroller using SDCC (Small Device C Compiler) within Visual Studio Code with EIDE (Embedded IDE).
